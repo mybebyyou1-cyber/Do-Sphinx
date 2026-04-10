@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>لوحة بائع — Sphinxfy</title>
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Sphinxfy — لوحة البائعين</h1>
+
+    <section id="auth-section" class="card">
+      <h2 id="auth-title">تسجيل دخول بائع</h2>
+      <form id="auth-form">
+        <label>اسم البائع<input name="vendor" required/></label>
+        <label>كلمة المرور<input name="password" type="password" required/></label>
+        <div style="display:flex;gap:.5rem">
+          <button class="btn" type="submit" id="auth-submit">دخول</button>
+          <button class="btn" type="button" id="switch-register">إنشاء حساب بائع</button>
+        </div>
+        <p id="auth-msg" role="status"></p>
+      </form>
+    </section>
+
+    <section id="dashboard" style="display:none">
+      <div class="card">
+        <h2>مرحبا، <span id="vendor-name"></span></h2>
+        <button class="btn" id="logout">تسجيل خروج</button>
+      </div>
+
+      <div class="card">
+        <h3>إضافة / تعديل منتج</h3>
+        <form id="product-form">
+          <input type="hidden" name="id" />
+          <label>اسم المنتج<input name="title" required/></label>
+          <label>السعر (EGP)<input name="price" type="number" min="0" required/></label>
+          <label>رابط الصورة<input name="img" /></label>
+          <button class="btn" type="submit">حفظ المنتج</button>
+          <button type="button" id="clear-form">ممسوح</button>
+        </form>
+      </div>
+
+      <div class="card">
+        <h3>منتجاتك</h3>
+        <div id="my-products"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="admin.js"></script>
+</body>
+</html>
